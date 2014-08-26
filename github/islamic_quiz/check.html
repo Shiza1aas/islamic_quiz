@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+          <html>
+          <head>
+              <title></title>
+              <link rel="stylesheet" type="text/css" href="style.css">
+          </head>
+          <body>
+            <div id="question">
+              <h3 id = "center"> Sex <form  method = "POST" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+
+                      <input type="radio"  name=" answer" id="A" value="A" >Male<br>
+                      <input type="radio"  name=" answer" id="B" value="B" >Female<br>
+                      <input type="radio"  name=" answer" id="C" value="C" >Both<br>
+                      <input type="radio"  name=" answer" id="D" value="D" >None<br>
+
+                      <input type="hidden" name = "qid" value="<?php echo $row['qid'] ?>">
+                   <!--    <input type="hidden" name = "range" value="<?php  $range ?>"> -->
+                      <input type="hidden" name = "level" value="<?php  echo $level ?>">
+                      <input type="hidden" name = "select" value="<?php  echo $select ?>">
+
+                      <input id= "color" type="submit" name="submit" value="ANSWER"/>
+
+                  </form>
+               </div>
+               <script type="text/javascript" src="play_quiz.js"></script>
+          </body>
+          </html>
