@@ -1,0 +1,206 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Aug 22, 2014 at 04:57 PM
+-- Server version: 5.5.36
+-- PHP Version: 5.4.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `islamic`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `a_id` int(11) NOT NULL AUTO_INCREMENT,
+  `a_name` varchar(30) DEFAULT NULL,
+  `a_password` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`a_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`a_id`, `a_name`, `a_password`) VALUES
+(1, 'shiza', 'jahan@shah');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `question`
+--
+
+CREATE TABLE IF NOT EXISTS `question` (
+  `user_id` int(5) NOT NULL DEFAULT '0',
+  `qid` int(11) NOT NULL AUTO_INCREMENT,
+  `sawal` text,
+  `a` text,
+  `b` text,
+  `c` text,
+  `d` text,
+  `ANSWER` varchar(1) DEFAULT NULL,
+  `lvl` varchar(1) DEFAULT NULL,
+  `type` varchar(1) DEFAULT NULL,
+  `permission` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`qid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
+--
+-- Dumping data for table `question`
+--
+
+INSERT INTO `question` (`user_id`, `qid`, `sawal`, `a`, `b`, `c`, `d`, `ANSWER`, `lvl`, `type`, `permission`) VALUES
+(1, 13, 'Who was the first wife of our prophet Muhammad (SAWS)?', 'Khadija (RA)', 'Maymuna', 'Aisha', 'Umme Salma', 'A', 'H', 'P', 1),
+(0, 14, ' Which prophet was swallowed by whale ?', 'Yusuf (AS)', 'Yunus (AS)', 'Yaqub (AS)', 'Yahya (AS)', 'B', 'E', 'P', 0),
+(0, 15, 'Eid-ul-Fitr falls in the month of: ', 'Ramadhan', 'Shawwal', 'Rajab', 'Jama-ul-Awwal', 'B', 'M', 'P', 0),
+(0, 16, 'The last surah of the quran is : ', 'Al-Ahzab', 'Al-hajj', 'An-nasr', 'An-Nas', 'D', 'E', 'P', 0),
+(0, 17, 'What was the age of our prophet, when he first received the revelation? ', '40', '30 ', '35', '60', 'A', 'M', 'P', 0),
+(0, 18, ' The first battle between Muslims and Quraish was:', 'Battle of Badr', 'Battle of Uhud', 'Battle of Tabuk', 'Battle of Khandak', 'A', 'M', 'P', 0),
+(0, 19, 'When did the Islamic calender Hijri begin? ', 'Muhammad SAWS birth', 'First revelation of the quran', 'The day of migration from mekkah to medina', 'Battle of Badr', 'C', 'M', 'P', 0),
+(0, 20, ' The prophet who knew the language of birds? ', 'Yusuf (AS)', 'Yunus (AS)', 'Suleman(AS)', 'Yahya (AS)', 'C', 'M', 'P', 0),
+(0, 21, ' The fuels of Jahannum are:', 'Men ', 'Men and Jinn', 'Men and Shaitan', 'None of them', 'D', 'M', 'P', 0),
+(0, 23, ' How many times our prophet Muhammad SAWS is mentioned by his name in the Quran?', '2', '5', '7', '4', 'D', 'M', 'P', 0),
+(0, 24, 'In which surah Honey is mentioned? ', 'An-Naas', 'Al-Nasr', 'Al-Ikhlas', 'An-Nahl', 'D', 'M', 'P', 0),
+(0, 25, ' What was the first name of the Muhammad (SAWS ) wet-nurse ?', 'Halima (RA)', 'Fatima(RA)', 'Aamina', 'Khadija(RA)', 'D', 'M', 'P', 0),
+(1, 29, 'The name of the Sahabi of prophet Muhammad (SAWS ) which is mentioned by his name in the Quran is: ', 'Abu-bakr (RA)', 'Umar (RA)', 'Hussain (RA)', 'Harith', 'D', 'H', 'P', 0),
+(3, 30, 'The name of elder daughter of the Prophet Muhammad SAWS was:', 'Fatima', 'Zainab', 'Umaiyya', 'Kulsum', 'A', 'M', 'P', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) DEFAULT NULL,
+  `password` varchar(40) DEFAULT NULL,
+  `join_date` datetime DEFAULT NULL,
+  `first_name` varchar(32) DEFAULT NULL,
+  `last_name` varchar(32) DEFAULT NULL,
+  `gender` varchar(1) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
+  `city` varchar(32) DEFAULT NULL,
+  `state` varchar(5) DEFAULT NULL,
+  `score` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password`, `join_date`, `first_name`, `last_name`, `gender`, `birthdate`, `city`, `state`, `score`) VALUES
+(1, 'Shahjahan', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2014-08-17 00:02:38', 'Mohammad', 'Shahjahan', 'M', '1994-02-14', 'Patna', 'Bihar', 14),
+(3, 'Tabish', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2014-08-17 23:08:05', NULL, NULL, NULL, NULL, NULL, NULL, 18),
+(4, 'adil', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2014-08-17 23:08:27', NULL, NULL, NULL, NULL, NULL, NULL, 14),
+(5, 'New', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2014-08-19 00:16:31', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(6, 'abc', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2014-08-19 03:46:25', NULL, NULL, NULL, NULL, NULL, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_question`
+--
+
+CREATE TABLE IF NOT EXISTS `user_question` (
+  `qid` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `uq_id` int(11) NOT NULL AUTO_INCREMENT,
+  `answer_key` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`uq_id`),
+  KEY `qid` (`qid`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=75 ;
+
+--
+-- Dumping data for table `user_question`
+--
+
+INSERT INTO `user_question` (`qid`, `user_id`, `uq_id`, `answer_key`) VALUES
+(16, 1, 2, 0),
+(14, 1, 3, 0),
+(17, 1, 4, 0),
+(23, 1, 5, 0),
+(25, 1, 6, 0),
+(24, 1, 7, 0),
+(12, 1, 8, 0),
+(14, 4, 12, 1),
+(16, 4, 13, 1),
+(23, 5, 14, 0),
+(18, 5, 15, 1),
+(17, 5, 16, 1),
+(25, 5, 17, 0),
+(25, 5, 18, 0),
+(21, 5, 19, 0),
+(19, 5, 20, 1),
+(14, 5, 21, 1),
+(16, 5, 22, 1),
+(12, 5, 23, 0),
+(12, 5, 24, 0),
+(29, 5, 25, 1),
+(15, 5, 26, 1),
+(15, 5, 27, 1),
+(15, 5, 28, 1),
+(15, 5, 29, 1),
+(15, 5, 30, 1),
+(20, 5, 31, 0),
+(14, 6, 32, 1),
+(16, 6, 33, 1),
+(17, 6, 34, 1),
+(25, 6, 35, 1),
+(18, 6, 36, 1),
+(13, 6, 37, 0),
+(29, 6, 38, 1),
+(23, 6, 39, 1),
+(23, 6, 40, 1),
+(23, 6, 41, 1),
+(25, 4, 47, 1),
+(21, 4, 48, 0),
+(21, 4, 49, 0),
+(21, 4, 50, 0),
+(21, 4, 51, 0),
+(21, 4, 52, 0),
+(19, 1, 53, 1),
+(19, 1, 54, 1),
+(15, 1, 55, 0),
+(18, 1, 56, 1),
+(21, 1, 57, 1),
+(21, 1, 58, 1),
+(21, 1, 59, 1),
+(20, 1, 60, 1),
+(14, 3, 61, 1),
+(16, 3, 62, 1),
+(18, 3, 63, 1),
+(23, 3, 64, 0),
+(24, 3, 65, 1),
+(17, 3, 66, 1),
+(20, 3, 67, 1),
+(15, 3, 68, 0),
+(19, 3, 69, 1),
+(21, 3, 70, 0),
+(25, 3, 71, 1),
+(13, 3, 72, 1),
+(29, 3, 73, 0),
+(30, 1, 74, 0);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `user_question`
+--
+ALTER TABLE `user_question`
+  ADD CONSTRAINT `user_question_ibfk_1` FOREIGN KEY (`qid`) REFERENCES `question` (`qid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_question_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
